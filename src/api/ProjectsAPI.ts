@@ -34,6 +34,9 @@ const ProjectsAPI = {
     export: (projectId: string, exportConfigId: string, options: { emojify: boolean }) => {
         return API.getRequest(`projects/${projectId}/exports/${exportConfigId}`, options, null, true);
     },
+    exportRelease: (projectId: string, exportConfigId: string, options: { emojify: boolean; locale: string }) => {
+        return API.getRequest(`projects/${projectId}/exports_config/${exportConfigId}/release`, options, null, true);
+    },
 
     import: async (projectId: string, languageId: string, file: any) => {
         const fileBase64 = getBase64(file);
